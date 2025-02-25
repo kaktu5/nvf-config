@@ -1,14 +1,9 @@
 {
-  colors,
+  theme,
   lib,
   ...
 }: let
-  inherit
-    (colors)
-    fg0
-    lightPurple
-    purple
-    ;
+  inherit (theme) fg0 lightPurple purple;
   inherit (lib.kkts) mkLuaExpr;
   starter = ''require("mini.starter")'';
 in {
@@ -109,14 +104,14 @@ in {
     };
   };
   highlight = {
-    MiniStarterCurrent.fg = fg0;
-    MiniStarterFooter.fg = purple;
-    MiniStarterHeader.fg = purple;
-    MiniStarterInactive.fg = fg0;
-    MiniStarterItem.fg = fg0;
-    MiniStarterItemBullet.fg = purple;
-    MiniStarterItemPrefix.fg = purple;
-    MiniStarterSection.fg = purple;
-    MiniStarterQuery.fg = lightPurple;
+    MiniStarterCurrent.fg = "#${fg0}";
+    MiniStarterFooter.fg = "#${purple}";
+    MiniStarterHeader.fg = "#${purple}";
+    MiniStarterInactive.fg = "#${fg0}";
+    MiniStarterItem.fg = "#${fg0}";
+    MiniStarterItemBullet.fg = "#${purple}";
+    MiniStarterItemPrefix.fg = "#${purple}";
+    MiniStarterSection.fg = "#${purple}";
+    MiniStarterQuery.fg = "#${lightPurple}";
   };
 }

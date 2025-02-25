@@ -7,3 +7,4 @@
 !.gitignore
 !flake.lock
 !flake.nix
+!theme.nix

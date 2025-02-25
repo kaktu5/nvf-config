@@ -1,20 +1,5 @@
 {
   "nodes": {
-    "colors": {
-      "locked": {
-        "lastModified": 1739393441,
-        "narHash": "sha256-jcI7fcJ4JPb8EV8y2DrKdzspfohokt7fG4IZx8fwPUE=",
-        "owner": "kaktu5",
-        "repo": "colors",
-        "rev": "dd34b4d67896e25290577fa226bf1e79bf2be65e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kaktu5",
-        "repo": "colors",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -190,7 +175,6 @@
     },
     "root": {
       "inputs": {
-        "colors": "colors",
         "flake-utils": "flake-utils",
         "flint": "flint",
         "nixpkgs": "nixpkgs",

@@ -1,5 +1,5 @@
-{colors, ...}: let
-  inherit (colors) fg0 purple;
+{theme, ...}: let
+  inherit (theme) fg0 purple;
 in {
   telescope = {
     enable = true;
@@ -24,40 +24,40 @@ in {
     };
   };
   highlight = {
-    TelescopeTitle.fg = fg0;
-    TelescopeBorder.fg = fg0;
-    TelescopeNormal.fg = fg0;
-    TelescopeMatching.fg = purple;
-    TelescopeMultiIcon.fg = purple;
-    TelescopeSelection.fg = purple;
-    TelescopePreviewDate.fg = fg0;
-    TelescopePreviewLine.fg = fg0;
-    TelescopePreviewLink.fg = fg0;
-    TelescopePreviewPipe.fg = fg0;
-    TelescopePreviewRead.fg = fg0;
-    TelescopePreviewSize.fg = fg0;
-    TelescopePreviewUser.fg = fg0;
-    TelescopePromptTitle.fg = fg0;
-    TelescopePreviewBlock.fg = fg0;
-    TelescopePreviewGroup.fg = fg0;
-    TelescopePreviewMatch.fg = purple;
-    TelescopePreviewTitle.fg = fg0;
-    TelescopePreviewWrite.fg = fg0;
-    TelescopePromptBorder.fg = fg0;
-    TelescopePromptNormal.fg = fg0;
-    TelescopePromptPrefix.fg = fg0;
-    TelescopePreviewBorder.fg = fg0;
-    TelescopePreviewHyphen.fg = fg0;
-    TelescopePreviewNormal.fg = fg0;
-    TelescopePreviewSocket.fg = fg0;
-    TelescopePreviewSticky.fg = fg0;
-    TelescopePromptCounter.fg = fg0;
-    TelescopeMultiSelection.fg = fg0;
-    TelescopePreviewCharDev.fg = fg0;
-    TelescopePreviewExecute.fg = fg0;
-    TelescopePreviewMessage.fg = fg0;
-    TelescopeSelectionCaret.fg = purple;
-    TelescopePreviewDirectory.fg = fg0;
-    TelescopePreviewMessageFillchar.fg = fg0;
+    TelescopeTitle.fg = "#${fg0}";
+    TelescopeBorder.fg = "#${fg0}";
+    TelescopeNormal.fg = "#${fg0}";
+    TelescopeMatching.fg = "#${purple}";
+    TelescopeMultiIcon.fg = "#${purple}";
+    TelescopeSelection.fg = "#${purple}";
+    TelescopePreviewDate.fg = "#${fg0}";
+    TelescopePreviewLine.fg = "#${fg0}";
+    TelescopePreviewLink.fg = "#${fg0}";
+    TelescopePreviewPipe.fg = "#${fg0}";
+    TelescopePreviewRead.fg = "#${fg0}";
+    TelescopePreviewSize.fg = "#${fg0}";
+    TelescopePreviewUser.fg = "#${fg0}";
+    TelescopePromptTitle.fg = "#${fg0}";
+    TelescopePreviewBlock.fg = "#${fg0}";
+    TelescopePreviewGroup.fg = "#${fg0}";
+    TelescopePreviewMatch.fg = "#${purple}";
+    TelescopePreviewTitle.fg = "#${fg0}";
+    TelescopePreviewWrite.fg = "#${fg0}";
+    TelescopePromptBorder.fg = "#${fg0}";
+    TelescopePromptNormal.fg = "#${fg0}";
+    TelescopePromptPrefix.fg = "#${fg0}";
+    TelescopePreviewBorder.fg = "#${fg0}";
+    TelescopePreviewHyphen.fg = "#${fg0}";
+    TelescopePreviewNormal.fg = "#${fg0}";
+    TelescopePreviewSocket.fg = "#${fg0}";
+    TelescopePreviewSticky.fg = "#${fg0}";
+    TelescopePromptCounter.fg = "#${fg0}";
+    TelescopeMultiSelection.fg = "#${fg0}";
+    TelescopePreviewCharDev.fg = "#${fg0}";
+    TelescopePreviewExecute.fg = "#${fg0}";
+    TelescopePreviewMessage.fg = "#${fg0}";
+    TelescopeSelectionCaret.fg = "#${purple}";
+    TelescopePreviewDirectory.fg = "#${fg0}";
+    TelescopePreviewMessageFillchar.fg = "#${fg0}";
   };
 }

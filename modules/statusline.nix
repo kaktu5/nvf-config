@@ -1,10 +1,10 @@
 {
-  colors,
   lib,
+  theme,
   ...
 }: let
   inherit (lib.kkts) mkHl mkLuaExpr;
-  inherit (colors) bg0 blue fg0 lightBlue orange purple red;
+  inherit (theme) bg0 blue fg0 lightBlue orange purple red;
 in {
   mini.statusline = {
     enable = true;
@@ -37,13 +37,13 @@ in {
       '';
   };
   highlight = {
-    MiniStatuslineModeNormal = mkHl purple bg0 0;
-    MiniStatuslineModeInsert = mkHl blue bg0 0;
-    MiniStatuslineModeVisual = mkHl lightBlue bg0 0;
-    MiniStatuslineModeReplace = mkHl red bg0 0;
-    MiniStatuslineModeCommand = mkHl orange bg0 0;
-    MiniStatuslineModeOther = mkHl orange bg0 0;
-    MiniStatuslineInactive = mkHl bg0 fg0 0;
-    MiniStatuslineInfo = mkHl bg0 fg0 0;
+    MiniStatuslineModeNormal = mkHl "#${purple}" "#${bg0}" 0;
+    MiniStatuslineModeInsert = mkHl "#${blue}" "#${bg0}" 0;
+    MiniStatuslineModeVisual = mkHl "#${lightBlue}" "#${bg0}" 0;
+    MiniStatuslineModeReplace = mkHl "#${red}" "#${bg0}" 0;
+    MiniStatuslineModeCommand = mkHl "#${orange}" "#${bg0}" 0;
+    MiniStatuslineModeOther = mkHl "#${orange}" "#${bg0}" 0;
+    MiniStatuslineInactive = mkHl "#${bg0}" "#${fg0}" 0;
+    MiniStatuslineInfo = mkHl "#${bg0}" "#${fg0}" 0;
   };
 }

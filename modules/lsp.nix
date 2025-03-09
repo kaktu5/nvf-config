@@ -16,14 +16,24 @@ in {
   };
   autocomplete.nvim-cmp = {
     enable = true;
+    setupOpts.window.documentation = {
+      max_height = 8;
+      max_width = 48;
+    };
     mappings = {
       complete = null;
+      close = "<C-e>";
       confirm = "<C-y>";
       next = "<C-n>";
       previous = "<C-p>";
+      scrollDocsDown = "<C-f>";
+      scrollDocsUp = "<C-d>";
     };
   };
-  snippets.luasnip.enable = true;
+  options = {
+    pumheight = 8;
+    pumwidth = 24;
+  };
   visuals.fidget-nvim = {
     enable = true;
     setupOpts.notification.window.winblend = 0;
@@ -49,5 +59,14 @@ in {
     wgsl.enable = true;
     zig.enable = true;
   };
-  extraPlugins.yuck-vim.package = pkgs.vimPlugins.yuck-vim;
+  treesitter = {
+    autotagHtml = true;
+    grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+      hyprlang
+      scheme
+      toml
+      wgsl_bevy
+      yuck
+    ];
+  };
 }

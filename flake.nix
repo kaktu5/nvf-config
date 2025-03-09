@@ -5,15 +5,11 @@
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
     };
-    flint = {
-      url = "github:notashelf/flint";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nvf = {
       url = "github:notashelf/nvf";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
       };
     };
@@ -25,11 +21,8 @@
   };
   outputs = {self, ...} @ inputs:
     inputs.flake-utils.lib.eachDefaultSystem (system: let
-      lib =
-        inputs.nixpkgs.lib
-        // inputs.nvf.lib
-        // import ./lib;
-      pkgs = import inputs.nixpkgs {inherit system;};
+      lib = inputs.nixpkgs.lib // inputs.nvf.lib // import ./lib.nix;
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
       treefmt =
         (inputs.treefmt-nix.lib.evalModule pkgs {
           programs = {
@@ -46,27 +39,13 @@
         inherit
           (lib.neovimConfiguration {
             inherit pkgs;
-            extraSpecialArgs = {
-              inherit (inputs) colors;
-              inherit inputs lib;
-            };
+            extraSpecialArgs = {inherit lib;};
             modules = [./modules];
           })
           neovim
           ;
       };
       formatter = treefmt.wrapper;
-      checks = {
-        formatting = treefmt.check self;
-        lockfile =
-          pkgs.runCommandLocal "lockfile-check" {
-            src = ./.;
-            nativeBuildInputs = [inputs.flint.packages.${system}.default];
-          } ''
-            find "$src" -type f -name 'flake.lock' \
-              | xargs flint --fail-if-multiple-versions --lockfile
-            touch "$out"
-          '';
-      };
+      checks.formatting = treefmt.check self;
     });
 }

@@ -1,10 +1,9 @@
 *
-!lib/
-!lib/**
 !modules/
 !modules/**
 !.editorconfig
 !.gitignore
 !flake.lock
 !flake.nix
+!lib.nix
 !theme.nix

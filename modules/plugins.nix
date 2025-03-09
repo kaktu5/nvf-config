@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   mini = {
     comment.enable = true;
-    diff.enable = true;
-    jump.enable = true;
     pairs.enable = true;
     splitjoin.enable = true;
     surround.enable = true;

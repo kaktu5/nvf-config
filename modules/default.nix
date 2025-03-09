@@ -1,7 +1,5 @@
 {
-  colors,
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -13,13 +11,12 @@ in {
   vim =
     foldl (acc: file:
       recursiveUpdate acc (import file {
-        inherit colors config' inputs lib pkgs theme;
+        inherit config' lib pkgs theme;
       }))
     {} [
       ./git.nix
       ./lsp.nix
       ./plugins.nix
-      ./presence.nix
       ./remaps.nix
       ./settings.nix
       ./startbuf.nix

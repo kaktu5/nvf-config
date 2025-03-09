@@ -1,5 +1,5 @@
 {theme, ...}: let
-  inherit (theme) fg0 purple;
+  inherit (theme) fg0 fg3 purple;
 in {
   telescope = {
     enable = true;
@@ -19,13 +19,13 @@ in {
         "result/"
         "target/"
       ];
-      prompt_prefix = ": ";
+      prompt_prefix = " ";
       selection_caret = "▌ ";
     };
   };
   highlight = {
     TelescopeTitle.fg = "#${fg0}";
-    TelescopeBorder.fg = "#${fg0}";
+    TelescopeBorder.fg = "#${fg3}";
     TelescopeNormal.fg = "#${fg0}";
     TelescopeMatching.fg = "#${purple}";
     TelescopeMultiIcon.fg = "#${purple}";
@@ -40,13 +40,13 @@ in {
     TelescopePromptTitle.fg = "#${fg0}";
     TelescopePreviewBlock.fg = "#${fg0}";
     TelescopePreviewGroup.fg = "#${fg0}";
-    TelescopePreviewMatch.fg = "#${purple}";
+    TelescopePreviewMatch.fg = "#${fg0}";
     TelescopePreviewTitle.fg = "#${fg0}";
     TelescopePreviewWrite.fg = "#${fg0}";
-    TelescopePromptBorder.fg = "#${fg0}";
+    TelescopePromptBorder.fg = "#${fg3}";
     TelescopePromptNormal.fg = "#${fg0}";
-    TelescopePromptPrefix.fg = "#${fg0}";
-    TelescopePreviewBorder.fg = "#${fg0}";
+    TelescopePromptPrefix.fg = "#${purple}";
+    TelescopePreviewBorder.fg = "#${fg3}";
     TelescopePreviewHyphen.fg = "#${fg0}";
     TelescopePreviewNormal.fg = "#${fg0}";
     TelescopePreviewSocket.fg = "#${fg0}";

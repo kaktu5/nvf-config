@@ -10,7 +10,6 @@ _: {
     list = true;
     scrolloff = 8;
     incsearch = true;
-    hlsearch = false;
     swapfile = false;
     backup = false;
     undofile = true;
@@ -19,5 +18,7 @@ _: {
   };
   luaConfigPost =
     # lua
-    ''vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvf/undodir"'';
+    ''
+      vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvf/undodir"
+    '';
 }

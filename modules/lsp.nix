@@ -59,14 +59,15 @@ in {
     wgsl.enable = true;
     zig.enable = true;
   };
-  treesitter = {
-    autotagHtml = true;
-    grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
-      hyprlang
-      scheme
-      toml
-      wgsl_bevy
-      yuck
-    ];
-  };
+  treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+    asm
+    commonlisp
+    hyprlang
+    json
+    printf
+    ron
+    scheme
+    toml
+    yuck
+  ];
 }

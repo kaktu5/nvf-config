@@ -1,4 +1,4 @@
-rec {
+{
   bg0 = "000000"; # ----
   bg1 = "0d0e14"; # ---
   bg2 = "1b1c28"; # --
@@ -16,14 +16,4 @@ rec {
   lightBlue = "9fbbf3";
   purple = "a485dd";
   lightPurple = "bc99ff";
-
-  termBg = bg0;
-  term0 = bg3;
-  term1 = red;
-  term2 = green;
-  term3 = yellow;
-  term4 = blue;
-  term5 = purple;
-  term6 = lightBlue;
-  term7 = fg0;
 }

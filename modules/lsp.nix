@@ -1,25 +1,10 @@
-{pkgs, ...}: let
-  inherit (pkgs) makeWrapper nixd symlinkJoin;
-  nixd' = symlinkJoin rec {
-    name = "nixd";
-    paths = [nixd];
-    nativeBuildInputs = [makeWrapper];
-    postBuild = ''
-      wrapProgram $out/bin/${name} \
-        --set NIXD_FLAGS "--inlay-hints=true"
-    '';
-  };
-in {
+{pkgs, ...}: {
   lsp = {
     formatOnSave = true;
     lsplines.enable = true;
   };
-  autocomplete.nvim-cmp = {
+  autocomplete.blink-cmp = {
     enable = true;
-    setupOpts.window.documentation = {
-      max_height = 8;
-      max_width = 48;
-    };
     mappings = {
       complete = null;
       close = "<C-e>";
@@ -29,10 +14,6 @@ in {
       scrollDocsDown = "<C-f>";
       scrollDocsUp = "<C-d>";
     };
-  };
-  options = {
-    pumheight = 8;
-    pumwidth = 24;
   };
   visuals.fidget-nvim = {
     enable = true;
@@ -50,7 +31,7 @@ in {
     html.enable = true;
     lua = {enable = true;} // {lsp.lazydev.enable = true;};
     markdown.enable = true;
-    nix = {enable = true;} // {lsp = {server = "nixd";} // {package = nixd';};};
+    nix = {enable = true;} // {lsp.server = "nixd";};
     nu.enable = true;
     ocaml.enable = true;
     rust = {enable = true;} // {crates.enable = true;};
@@ -61,12 +42,8 @@ in {
   };
   treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
     asm
-    commonlisp
     hyprlang
-    json
-    printf
     ron
-    scheme
     toml
     yuck
   ];

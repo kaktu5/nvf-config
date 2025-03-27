@@ -40,7 +40,7 @@
           (lib.neovimConfiguration {
             inherit pkgs;
             extraSpecialArgs = {inherit lib;};
-            modules = [./modules];
+            modules = [./config];
           })
           neovim
           ;

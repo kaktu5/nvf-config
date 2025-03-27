@@ -5,6 +5,7 @@
   };
   autocomplete.blink-cmp = {
     enable = true;
+    setupOpts.completion.menu.auto_show = false;
     mappings = {
       complete = null;
       close = "<C-e>";

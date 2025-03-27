@@ -30,21 +30,8 @@
     vim-tmux-navigator.package = vim-tmux-navigator;
   };
   extraPackages = with pkgs; [imagemagick luajitPackages.magick];
-  maps.normal = {
-    "<leader>u" = {
-      lua = true;
-      action = "vim.cmd.UndotreeToggle";
-    };
-    "<leader>tws" = {
-      lua = true;
-      action =
-        # lua
-        ''
-          function()
-            require('mini.trailspace').trim()
-            require('mini.trailspace').trim_last_lines()
-          end
-        '';
-    };
+  maps.normal."<leader>u" = {
+    lua = true;
+    action = "vim.cmd.UndotreeToggle";
   };
 }

@@ -1,6 +1,6 @@
 *
-!modules/
-!modules/**
+!config/
+!config/**
 !.editorconfig
 !.gitignore
 !flake.lock

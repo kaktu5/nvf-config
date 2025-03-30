@@ -4,39 +4,38 @@ in {
   telescope = {
     enable = true;
     mappings = {
-      open = "<leader>pt";
+      buffers = "<leader>pb";
       findFiles = "<leader>pf";
       liveGrep = "<leader>pg";
+      open = "<leader>pt";
     };
     setupOpts.defaults = {
       borderchars = ["─" "│" "─" "│" "┌" "┐" "┘" "└"];
       file_ignore_patterns = [
         ".git/"
         ".lock"
-        "build/"
-        "dist/"
-        "node_modules"
+        "_build/"
         "result/"
         "target/"
       ];
       prompt_prefix = " ";
-      selection_caret = "▌ ";
+      selection_caret = "██";
     };
   };
   highlight = {
     TelescopeTitle.fg = fg0;
     TelescopeBorder.fg = fg3;
     TelescopeNormal.fg = fg0;
-    TelescopeMatching.fg = purple;
+    TelescopeMatching = {fg = purple;} // {bold = true;};
     TelescopeMultiIcon.fg = purple;
-    TelescopeSelection.fg = purple;
-    TelescopePreviewDate.fg = fg0;
-    TelescopePreviewLine.fg = fg0;
-    TelescopePreviewLink.fg = fg0;
-    TelescopePreviewPipe.fg = fg0;
-    TelescopePreviewRead.fg = fg0;
-    TelescopePreviewSize.fg = fg0;
-    TelescopePreviewUser.fg = fg0;
+    TelescopeSelection = {bold = true;} // {reverse = true;};
+    TelescopePreviewDate = {bold = true;} // {reverse = true;};
+    TelescopePreviewLine = {bold = true;} // {reverse = true;};
+    TelescopePreviewLink = {bold = true;} // {reverse = true;};
+    TelescopePreviewPipe = {bold = true;} // {reverse = true;};
+    TelescopePreviewRead = {bold = true;} // {reverse = true;};
+    TelescopePreviewSize = {bold = true;} // {reverse = true;};
+    TelescopePreviewUser = {bold = true;} // {reverse = true;};
     TelescopePromptTitle.fg = fg0;
     TelescopePreviewBlock.fg = fg0;
     TelescopePreviewGroup.fg = fg0;
@@ -56,7 +55,7 @@ in {
     TelescopePreviewCharDev.fg = fg0;
     TelescopePreviewExecute.fg = fg0;
     TelescopePreviewMessage.fg = fg0;
-    TelescopeSelectionCaret.fg = purple;
+    TelescopeSelectionCaret.fg = fg0;
     TelescopePreviewDirectory.fg = fg0;
     TelescopePreviewMessageFillchar.fg = fg0;
   };

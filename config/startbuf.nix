@@ -12,7 +12,7 @@ in {
     setupOpts = {
       items =
         mkLuaExpr
-        # lua
+        /*lua*/
         ''
           {function()
             return function()
@@ -37,7 +37,7 @@ in {
       footer = "";
       content_hooks =
         mkLuaExpr
-        # lua
+        /*lua*/
         ''
           {
             ${starter}.gen_hook.adding_bullet("│ "),

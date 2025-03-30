@@ -15,9 +15,7 @@ _: {
     termguicolors = true;
     updatetime = 50;
   };
-  luaConfigPost =
-    # lua
-    ''
-      vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvf/undodir"
-    '';
+  luaConfigPost = /*lua*/ ''
+    vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvf/undodir"
+  '';
 }

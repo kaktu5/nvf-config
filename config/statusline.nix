@@ -3,14 +3,14 @@
   theme,
   ...
 }: let
-  inherit (lib.kkts) mkHl mkLuaExpr;
+  inherit (lib.kkts) mkLuaExpr;
   inherit (theme) bg0 blue fg0 lightBlue orange purple red;
 in {
   mini.statusline = {
     enable = true;
     setupOpts.content.active =
       mkLuaExpr
-      # lua
+      /*lua*/
       ''
         function()
           local statusline = require("mini.statusline")
@@ -37,13 +37,13 @@ in {
       '';
   };
   highlight = {
-    MiniStatuslineModeNormal = mkHl purple bg0 0;
-    MiniStatuslineModeInsert = mkHl blue bg0 0;
-    MiniStatuslineModeVisual = mkHl lightBlue bg0 0;
-    MiniStatuslineModeReplace = mkHl red bg0 0;
-    MiniStatuslineModeCommand = mkHl orange bg0 0;
-    MiniStatuslineModeOther = mkHl orange bg0 0;
-    MiniStatuslineInactive = mkHl bg0 fg0 0;
-    MiniStatuslineInfo = mkHl bg0 fg0 0;
+    MiniStatuslineModeNormal = {bg = purple;} // {fg = bg0;};
+    MiniStatuslineModeInsert = {bg = blue;} // {fg = bg0;};
+    MiniStatuslineModeVisual = {bg = lightBlue;} // {fg = bg0;};
+    MiniStatuslineModeReplace = {bg = red;} // {fg = bg0;};
+    MiniStatuslineModeCommand = {bg = orange;} // {fg = bg0;};
+    MiniStatuslineModeOther = {bg = orange;} // {fg = bg0;};
+    MiniStatuslineInactive = {bg = bg0;} // {fg = fg0;};
+    MiniStatuslineInfo = {bg = bg0;} // {fg = fg0;};
   };
 }

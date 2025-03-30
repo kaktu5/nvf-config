@@ -1,3 +1,18 @@
+/*
+{lib, ...}: let
+  inherit (builtins) readDir;
+  inherit (lib) attrNames filter hasPrefix map pipe;
+in {
+  imports = pipe ./. [
+    readDir
+    attrNames
+    (filter (file:
+      !(hasPrefix "." file)
+      && file != "default.nix"))
+    (map (file: ./${file}))
+  ];
+}
+*/
 {
   config,
   lib,

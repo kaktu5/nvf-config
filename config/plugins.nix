@@ -14,14 +14,12 @@
   extraPlugins = with pkgs.vimPlugins; {
     image-nvim = {
       package = image-nvim;
-      setup =
-        # lua
-        ''
-          require("image").setup({
-            max_height_window_percentage = 25,
-            tmux_show_only_in_active_window = true
-          })
-        '';
+      setup = /*lua*/ ''
+        require("image").setup({
+          max_height_window_percentage = 25,
+          tmux_show_only_in_active_window = true
+        })
+      '';
     };
     undotree.package = undotree;
     vim-smoothie.package = vim-smoothie;

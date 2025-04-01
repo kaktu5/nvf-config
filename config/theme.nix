@@ -1,5 +1,5 @@
 _: {
-  theme = {
+  vim.theme = {
     enable = true;
     transparent = true;
     name = "tokyonight";

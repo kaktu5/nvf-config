@@ -6,12 +6,10 @@
   inherit (lib.kkts) mkLuaExpr;
   inherit (theme) bg0 blue fg0 lightBlue orange purple red;
 in {
-  mini.statusline = {
-    enable = true;
-    setupOpts.content.active =
-      mkLuaExpr
-      /*lua*/
-      ''
+  vim = {
+    mini.statusline = {
+      enable = true;
+      setupOpts.content.active = mkLuaExpr ''
         function()
           local statusline = require("mini.statusline")
 
@@ -35,15 +33,16 @@ in {
           })
         end
       '';
-  };
-  highlight = {
-    MiniStatuslineModeNormal = {bg = purple;} // {fg = bg0;};
-    MiniStatuslineModeInsert = {bg = blue;} // {fg = bg0;};
-    MiniStatuslineModeVisual = {bg = lightBlue;} // {fg = bg0;};
-    MiniStatuslineModeReplace = {bg = red;} // {fg = bg0;};
-    MiniStatuslineModeCommand = {bg = orange;} // {fg = bg0;};
-    MiniStatuslineModeOther = {bg = orange;} // {fg = bg0;};
-    MiniStatuslineInactive = {bg = bg0;} // {fg = fg0;};
-    MiniStatuslineInfo = {bg = bg0;} // {fg = fg0;};
+    };
+    highlight = {
+      MiniStatuslineModeNormal = {fg = bg0;} // {bg = purple;};
+      MiniStatuslineModeInsert = {fg = bg0;} // {bg = blue;};
+      MiniStatuslineModeVisual = {fg = bg0;} // {bg = lightBlue;};
+      MiniStatuslineModeReplace = {fg = bg0;} // {bg = red;};
+      MiniStatuslineModeCommand = {fg = bg0;} // {bg = orange;};
+      MiniStatuslineModeOther = {fg = bg0;} // {bg = orange;};
+      MiniStatuslineInactive = {fg = fg0;} // {bg = bg0;};
+      MiniStatuslineInfo = {fg = fg0;} // {bg = bg0;};
+    };
   };
 }

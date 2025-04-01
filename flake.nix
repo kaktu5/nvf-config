@@ -1,10 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    alejandra = {
-      url = "github:kaktu5/alejandra";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
@@ -25,16 +21,11 @@
   };
   outputs = {self, ...} @ inputs:
     inputs.flake-utils.lib.eachDefaultSystem (system: let
-      lib = inputs.nixpkgs.lib // inputs.nvf.lib // import ./lib.nix;
-      # pkgs = inputs.nixpkgs.legacyPackages.${system};
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-        overlays = lib.singleton (_: _: {
-          alejandra = inputs.alejandra.packages.${system}.default.overrideAttrs (_: {
-            doCheck = false;
-          });
-        });
-      };
+      lib =
+        inputs.nixpkgs.lib
+        // inputs.nvf.lib
+        // import ./lib.nix {inherit (inputs.nixpkgs) lib;};
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
       treefmt =
         (inputs.treefmt-nix.lib.evalModule pkgs {
           programs = {
@@ -51,7 +42,10 @@
         inherit
           (lib.neovimConfiguration {
             inherit pkgs;
-            extraSpecialArgs = {inherit lib;};
+            extraSpecialArgs = {
+              inherit lib;
+              theme = import ./theme.nix;
+            };
             modules = [./config];
           })
           neovim

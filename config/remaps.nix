@@ -1,5 +1,5 @@
 _: {
-  maps = {
+  vim.maps = {
     normal = {
       "Q".action = "<nop>";
       "<leader>pv" = {action = "vim.cmd.Ex";} // {lua = true;};

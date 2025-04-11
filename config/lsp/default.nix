@@ -3,7 +3,10 @@
 in {
   imports = importAll ./.;
   vim = {
-    lsp.formatOnSave = true;
+    lsp = {
+      formatOnSave = true;
+      inlayHints.enable = true;
+    };
     languages = {
       enableLSP = true;
       enableFormat = true;

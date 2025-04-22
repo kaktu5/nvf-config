@@ -1,6 +1,7 @@
 _: {
   vim = {
     enableLuaLoader = true;
+    useSystemClipboard = true;
     options = {
       tabstop = 2;
       softtabstop = 2;
@@ -10,6 +11,7 @@ _: {
       wrap = false;
       list = true;
       scrolloff = 8;
+      sidescrolloff = 8;
       incsearch = true;
       swapfile = false;
       backup = false;

@@ -1,17 +1,15 @@
 {lib, ...}: let
-  inherit (lib.kkts) mkLuaExpr;
+  inherit (lib.nvim.lua) toLuaObject;
 in {
   vim = {
     diagnostics = {
       enable = true;
-      config.signs.text = mkLuaExpr ''
-        {
-          [vim.diagnostic.severity.ERROR] = " ",
-          [vim.diagnostic.severity.WARN] = " ",
-          [vim.diagnostic.severity.INFO] = " ",
-          [vim.diagnostic.severity.HINT] = " ",
-        },
-      '';
+      config.signs.text = toLuaObject {
+        "vim.diagnostic.severity.ERROR" = " ";
+        "vim.diagnostic.severity.WARN" = " ";
+        "vim.diagnostic.severity.INFO" = " ";
+        "vim.diagnostic.severity.HINT" = " ";
+      };
     };
     maps.normal."gK" = {
       action = ''

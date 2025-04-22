@@ -1,6 +1,7 @@
 {lib}: let
   inherit (builtins) readDir;
   inherit (lib) attrNames filter hasPrefix map pipe;
+  inherit (lib.nvim.lua) toLuaObject;
 in {
   kkts = {
     importAll = path: (pipe path [
@@ -11,6 +12,6 @@ in {
         && file != "default.nix"))
       (map (file: /${path}/${file}))
     ]);
-    mkLuaExpr = expr: {_type = "lua-inline";} // {inherit expr;};
+    setup = name: expr: ''require("${name}").setup(${toLuaObject expr})'';
   };
 }

@@ -1,12 +1,12 @@
 {lib, ...}: let
-  inherit (lib.kkts) mkLuaExpr;
+  inherit (lib.generators) mkLuaInline;
   border = ["┌" "─" "┐" "│" "┘" "─" "└" "│"];
 in {
   vim = {
     utility.oil-nvim = {
       enable = true;
       setupOpts = {
-        columns = mkLuaExpr ''
+        columns = mkLuaInline ''
           {
             "permissions",
             "size",
@@ -18,7 +18,7 @@ in {
         constrain_cursor = "name";
         watch_for_changes = true;
         use_default_keymaps = false;
-        keymaps = mkLuaExpr ''
+        keymaps = mkLuaInline ''
           {
             ["<CR>"] = "actions.select",
             ["<C-p>"] = "actions.preview",

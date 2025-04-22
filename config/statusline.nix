@@ -3,13 +3,13 @@
   theme,
   ...
 }: let
-  inherit (lib.kkts) mkLuaExpr;
-  inherit (theme) bg0 blue fg0 lightBlue orange purple red;
+  inherit (lib.generators) mkLuaInline;
+  inherit (theme) bg0 blue cyan fg0 orange purple red;
 in {
   vim = {
     mini.statusline = {
       enable = true;
-      setupOpts.content.active = mkLuaExpr ''
+      setupOpts.content.active = mkLuaInline ''
         function()
           local statusline = require("mini.statusline")
 
@@ -37,7 +37,7 @@ in {
     highlight = {
       MiniStatuslineModeNormal = {fg = bg0;} // {bg = purple;};
       MiniStatuslineModeInsert = {fg = bg0;} // {bg = blue;};
-      MiniStatuslineModeVisual = {fg = bg0;} // {bg = lightBlue;};
+      MiniStatuslineModeVisual = {fg = bg0;} // {bg = cyan;};
       MiniStatuslineModeReplace = {fg = bg0;} // {bg = red;};
       MiniStatuslineModeCommand = {fg = bg0;} // {bg = orange;};
       MiniStatuslineModeOther = {fg = bg0;} // {bg = orange;};

@@ -1,6 +1,14 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixexprs = {
+      url = "github:kaktu5/nixexprs";
+      inputs = {
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+        treefmt-nix.follows = "treefmt-nix";
+      };
+    };
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
@@ -24,8 +32,13 @@
       lib =
         inputs.nixpkgs.lib
         // inputs.nvf.lib
-        // import ./lib.nix {inherit (inputs.nixpkgs) lib;};
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
+        // import ./lib.nix {
+          lib = inputs.nixpkgs.lib // inputs.nvf.lib;
+        };
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        overlays = [inputs.nixexprs.overlays.default];
+      };
       treefmt =
         (inputs.treefmt-nix.lib.evalModule pkgs {
           programs = {

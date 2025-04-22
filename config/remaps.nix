@@ -3,8 +3,6 @@ _: {
     normal = {
       "Q".action = "<nop>";
       "J".action = "mzJ`z";
-      "y".action = "\"+y";
-      "Y".action = "\"+Y";
       "<leader>r" = {action = ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>";} // {silent = false;};
       "<leader>x".action = ":!chmod +x %<CR>";
       "<leader>cd".action = ":cd %:p:h<CR>";

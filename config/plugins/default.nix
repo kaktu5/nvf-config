@@ -14,6 +14,10 @@ in {
       surround.enable = true;
       trailspace.enable = true;
     };
+    utility.surround = {
+      enable = true;
+      useVendoredKeybindings = false;
+    };
     visuals = {
       highlight-undo.enable = true;
       nvim-cursorline.enable = true;

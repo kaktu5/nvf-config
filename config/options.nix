@@ -1,7 +1,10 @@
 _: {
   vim = {
     enableLuaLoader = true;
-    useSystemClipboard = true;
+    clipboard = {
+      providers.wl-copy.enable = true;
+      registers = "unnamedplus";
+    };
     options = {
       tabstop = 2;
       softtabstop = 2;

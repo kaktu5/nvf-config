@@ -3,9 +3,11 @@
 in {
   imports = importAll ./.;
   vim = {
-    lsp.formatOnSave = true;
+    lsp = {
+      enable = true;
+      formatOnSave = true;
+    };
     languages = {
-      enableLSP = true;
       enableFormat = true;
       enableTreesitter = true;
       enableExtraDiagnostics = true;

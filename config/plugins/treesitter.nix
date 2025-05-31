@@ -4,7 +4,6 @@ in {
   vim.treesitter.grammars = with builtGrammars; [
     asm
     bash
-    hyprlang
     linkerscript
     ron
     toml
@@ -12,6 +11,5 @@ in {
     wgsl-bevy
     xml
     yaml
-    yuck
   ];
 }

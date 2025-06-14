@@ -11,5 +11,6 @@ in {
       package = vimPlugins.indent-blankline-nvim;
       setup = setup "ibl" {scope.enabled = false;};
     };
+    vim-easy-align.package = vimPlugins.vim-easy-align;
   };
 }

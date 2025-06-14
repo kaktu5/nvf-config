@@ -17,7 +17,6 @@
       url = "github:notashelf/nvf";
       inputs = {
         flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
       };
     };

@@ -17,9 +17,9 @@ _: {
             ignored = {
               bevy_simple_subsecond_system_macros = { "hot" },
             },
-            diagnostics = {
-              disabled = { "proc-macro-disabled" },
-            },
+          },
+          diagnostics = {
+            disabled = { "proc-macro-disabled" },
           },
         },
       '';

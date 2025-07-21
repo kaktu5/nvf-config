@@ -1,0 +1,11 @@
+*
+!config/
+!config/**
+!.editorconfig
+!.gitignore
+!colors.nix
+!flake.lock
+!flake.nix
+!lib.nix
+!license
+!readme.md

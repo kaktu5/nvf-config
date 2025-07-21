@@ -19,8 +19,6 @@ in {
           bold = false;
           style = {
             boolean = "italic";
-            number = "italic";
-            float = "italic";
             keywords = "italic";
           };
         })

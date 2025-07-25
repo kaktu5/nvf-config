@@ -26,12 +26,14 @@ in {
     rust = {
       enable = true;
       crates.enable = true;
+      /*
       lsp.opts = toLuaObject {
         rust-analyzer = {
           diagnostics.disabled = ["proc-macro-disabled"];
           procMacro.ignored.bevy_simple_subsecond_system_macros = ["hot"];
         };
       };
+      */
     };
     typst = {
       enable = true;

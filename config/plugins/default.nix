@@ -1,4 +1,5 @@
 {
+  colors,
   lib,
   pkgs,
   ...
@@ -20,7 +21,6 @@ in {
     };
     visuals = {
       highlight-undo.enable = true;
-      nvim-cursorline.enable = true;
       nvim-web-devicons.enable = true;
     };
     extraPlugins = with pkgs.vimPlugins; {

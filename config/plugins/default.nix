@@ -1,4 +1,5 @@
 {
+  colors,
   lib,
   pkgs,
   ...
@@ -9,6 +10,7 @@ in {
   vim = {
     mini = {
       comment.enable = true;
+      indentscope.enable = true;
       splitjoin.enable = true;
       surround.enable = true;
       trailspace.enable = true;
@@ -21,16 +23,22 @@ in {
       highlight-undo.enable = true;
       nvim-web-devicons.enable = true;
     };
-    extraPlugins = with pkgs.vimPlugins; {
-      undotree.package = undotree;
-      vim-smoothie.package = vim-smoothie;
-      vim-sort-motion.package = vim-sort-motion;
-      vim-startuptime.package = vim-startuptime;
-      vim-tmux-navigator.package = vim-tmux-navigator;
-    };
+    extraPlugins =
+      {indentmini-nvim.package = pkgs.kkts.indentmini-nvim;}
+      // (with pkgs.vimPlugins; {
+        undotree.package = undotree;
+        vim-smoothie.package = vim-smoothie;
+        vim-sort-motion.package = vim-sort-motion;
+        vim-startuptime.package = vim-startuptime;
+        vim-tmux-navigator.package = vim-tmux-navigator;
+      });
     maps.normal."<leader>u" = {
       lua = true;
       action = "vim.cmd.UndotreeToggle";
+    };
+    highlight = {
+      IndentLine.fg = colors.bg1;
+      IndentLineCurrent.fg = colors.bg1;
     };
   };
 }

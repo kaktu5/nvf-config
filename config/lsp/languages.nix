@@ -19,6 +19,7 @@ in {
     };
     nix = {
       enable = true;
+      lsp.server = "nixd";
       extraDiagnostics.enable = false;
     };
     nu.enable = true;

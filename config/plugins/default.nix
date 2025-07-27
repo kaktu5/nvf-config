@@ -1,5 +1,4 @@
 {
-  colors,
   lib,
   pkgs,
   ...
@@ -10,7 +9,6 @@ in {
   vim = {
     mini = {
       comment.enable = true;
-      pairs.enable = true;
       splitjoin.enable = true;
       surround.enable = true;
       trailspace.enable = true;

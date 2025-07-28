@@ -4,7 +4,11 @@
   pkgs,
   ...
 }: let
-  inherit (lib.kkts) importAll;
+  inherit
+    (lib.kkts)
+    importAll
+    setup
+    ;
 in {
   imports = importAll ./.;
   vim = {
@@ -24,7 +28,12 @@ in {
       nvim-web-devicons.enable = true;
     };
     extraPlugins =
-      {indentmini-nvim.package = pkgs.kkts.indentmini-nvim;}
+      {
+        indentmini-nvim = {
+          package = pkgs.kkts.indentmini-nvim;
+          setup = setup "indentmini" {};
+        };
+      }
       // (with pkgs.vimPlugins; {
         undotree.package = undotree;
         vim-smoothie.package = vim-smoothie;

@@ -7,7 +7,7 @@ in {
       enable = true;
       format.type = "biome";
     };
-    # haskell.enable = true;
+    haskell.enable = true;
     html.enable = true;
     lua = {
       enable = true;
